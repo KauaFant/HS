@@ -7,7 +7,7 @@ header {
 }
 
 body {
-    background-color: black;
+    background-color: rgb(97, 97, 97);
     color: rgb(249, 247, 253);
     font-family: Arial, sans-serif;
 }
@@ -87,7 +87,7 @@ nav ul li a {
 
 
 .navbar a:hover {
-    color: pink;
+    color: rgb(255, 192, 192);
 }
 
 .navbar a:hover::after {
@@ -96,11 +96,89 @@ nav ul li a {
 
 section {
     padding: 20px;
-    background-color: rgba(245, 208, 208, 0.6); 
+    background-color: rgba(0, 0, 0, 0.6); 
     margin: 20px 0;
     border-radius: 8px;
 }
 
-#secao{
-    background-image:url('https://longahistoria.com.br/wp-content/uploads/2021/12/homem-aranha-sem-volta-para-casa-imagem-destacada.jpg');
+.container {
+    display: flex;
 }
+
+.entrevistas {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.galeria {
+    display: flex;
+    justify-content: space-between
+}
+
+.galeria img {
+    width: 30%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.galeria .image:hover {
+    transform: scale(1.1);
+}
+
+.container2 {
+    display: flex;
+}
+
+.comida {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.visto {
+    display: flex;
+    align-items: center;
+}
+
+.vistoImagem {
+    margin-right: 20px;
+    align-items: center;
+}
+
+.vimagem {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.Vistcontainer {
+    width: 90%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hidden-text {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-left: 50px;
+    font-size: 30px;
+    color: #ff1100;
+}
+
+.vistoImagem:hover + .Vistcontainer .hidden-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.vistoImagem:hover .vimagem {
+    transform: scale(1.1);
+}
+
