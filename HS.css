@@ -147,13 +147,21 @@ h2 {
 }
 
 .vive {
-    font-size: 23px;
+    font-size: 22px;
+    margin-left: 20px;
+    text-align: justify;
+}
+
+#viveP{
+    display: flex;
+    justify-content: space-around;
 }
 
 .visto {
     display: flex;
     align-items: center;
 }
+
 
 .vistoImagem {
     margin-right: 20px;
@@ -180,7 +188,7 @@ h2 {
     transition: opacity 0.5s ease, transform 0.5s ease;
     margin-left: 50px;
     font-size: 33px;
-    color: #ff1100;
+    color: #ffffff;
 }
 
 .vistoImagem:hover + .Vistcontainer .hidden-text {
@@ -192,6 +200,6 @@ h2 {
     transform: scale(1.1);
 }
 
-#hobby {
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/571/330/485/playstation-5-spider-man-playstation-spiderman-homecoming-miles-morales-hd-wallpaper-preview.jpg");
+#cat {
+    font-size: 50px;
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
     <header>
-        <section>
+        <section id="cat">
             <h1>O Homem Aranha</h1>
         </section>
         <section>
@@ -21,6 +21,10 @@
             </ul>
         </nav>
         </section>
+
+        <audio controls autoplay>
+            <source src="Post Malone, Swae Lee - Sunflower (Spider-Man： Into the Spider-Verse) (Official Video).mp3" type="audio/mpeg">
+        </audio>
         
     </header>
 
@@ -104,7 +108,7 @@
     <section id="come">
         <h2>O que ele come?</h2>
         <div class="container2">
-            <img src="https://p4.wallpaperbetter.com/wallpaper/293/39/680/still-life-food-meat-flesh-wallpaper-preview.jpg" width="300px" height="200px">
+            <img src="https://i.pinimg.com/originals/f6/0a/63/f60a6366de874b4e9e7f61681f5b7ce6.gif" width="400px" height="300px">
             <div class="comida">
                 <p> O Homem-Aranha, embora possua habilidades sobre-humanas, ainda precisa de uma alimentação equilibrada para manter sua energia enquanto combate o crime. 
                     Sua dieta geralmente inclui refeições simples e rápidas, como cereais, sanduíches, pizzas e lanches como barras de proteína e frutas, que ele consome enquanto patrulha a cidade. 
@@ -139,7 +143,9 @@
     </section>
 
     <section id="hobby"><h2>Qual seu Hobby?</h2>
-        <p class="vive">O Homem-Aranha, um dos heróis mais icônicos, tem um hobby que muitos não imaginam à primeira vista, dado seu estilo de vida frenético e suas responsabilidades como vigilante. 
+        <div id="viveP">
+            <img src="https://c4.wallpaperflare.com/wallpaper/571/330/485/playstation-5-spider-man-playstation-spiderman-homecoming-miles-morales-hd-wallpaper-preview.jpg" width="550px">
+            <p class="vive">O Homem-Aranha, um dos heróis mais icônicos, tem um hobby que muitos não imaginam à primeira vista, dado seu estilo de vida frenético e suas responsabilidades como vigilante. 
             Em seus momentos de lazer, longe das ruas movimentadas e dos combates intensos, ele dedica um tempo significativo a algo que lhe traz um certo alívio da constante pressão que enfrenta: a fotografia.
             Embora ele viva em um mundo repleto de aventuras e desafios, o ato de capturar momentos através das lentes de sua câmera se tornou uma forma de expressar sua visão do mundo, longe das máscaras e das teias. 
             A fotografia oferece uma maneira de congelar o instante, capturar a beleza nas pequenas coisas e, por um breve momento, se afastar das batalhas e dos conflitos que marcam sua vida diária.
@@ -150,15 +156,102 @@
             Por trás da lente, ele encontra um momento de tranquilidade, onde pode refletir sobre o que significa ser um herói, sem precisar agir ou salvar alguém a cada segundo. 
             É o momento em que ele se conecta consigo mesmo e com o mundo ao seu redor, longe do peso das expectativas que recaem sobre seus ombros. 
             E é nesse hobby simples e aparentemente comum que ele encontra um pequeno refúgio, enquanto, por trás das lentes da câmera, sua identidade permanece oculta, mesmo nas imagens que ele cria. 
-        </p>
+            </p>
+        </div>
+        
         <br>
         <br>
         <br>
+        <section id="quiz">
+            <h2>Quiz: Você conhece o Homem-Aranha?</h2>
+            <div id="quiz-container">
+                <p id="question"></p>
+                <div id="answers"></div>
+                <button onclick="nextQuestion()">Próxima</button>
+                <p id="result"></p>
+            </div>
+        </section>
+    
+        <script>
+            const quizData = [
+                {
+                    question: "Qual é o verdadeiro nome do Homem-Aranha?",
+                    options: ["Peter Parker", "Clark Kent", "Bruce Wayne", "Tony Stark"],
+                    correct: "Peter Parker"
+                },
+                {
+                    question: "Onde o Homem-Aranha mora?",
+                    options: ["Manhattan", "Brooklyn", "Queens", "Bronx"],
+                    correct: ["Queens", "Brooklyn"]
+                },
+                {
+                    question: "Qual é o hobby do Homem-Aranha?",
+                    options: ["Jogar Brawl stars", "Fotografia", "Cozinhar", "Pintar"],
+                    correct: ["Fotografia", "Jogar brawl stars"]
+                },
+                {
+                    question: "Quem é o vilão mais pessoal para o Homem-Aranha?",
+                    options: ["Venom", "Duende Verde", "Electro", "Thanos"],
+                    correct: "Duende Verde"
+                }
+            ];
+        
+            let currentQuestion = 0;
+            let score = 0;
+        
+            const questionEl = document.getElementById("question");
+            const answersEl = document.getElementById("answers");
+            const resultEl = document.getElementById("result");
+        
+            function loadQuestion() {
+                const q = quizData[currentQuestion];
+                questionEl.textContent = q.question;
+                answersEl.innerHTML = "";
+                q.options.forEach(option => {
+                    const btn = document.createElement("button");
+                    btn.textContent = option;
+                    btn.onclick = () => checkAnswer(option);
+                    btn.style.margin = "5px";
+                    btn.style.padding = "10px 20px";
+                    btn.style.backgroundColor = "#ff1100";
+                    btn.style.color = "#fff";
+                    btn.style.border = "none";
+                    btn.style.borderRadius = "8px";
+                    btn.style.cursor = "pointer";
+                    answersEl.appendChild(btn);
+                });
+            }
+        
+            function checkAnswer(selected) {
+                if (selected === quizData[currentQuestion].correct) {
+                    score++;
+                    resultEl.textContent = "✅ Resposta correta!";
+                } else {
+                    resultEl.textContent = "❌ Resposta errada. A resposta certa era: " + quizData[currentQuestion].correct;
+                }
+            }
+        
+            function nextQuestion() {
+                currentQuestion++;
+                resultEl.textContent = "";
+                if (currentQuestion < quizData.length) {
+                    loadQuestion();
+                } else {
+                    questionEl.textContent = "Fim do Quiz!";
+                    answersEl.innerHTML = "";
+                    resultEl.textContent = `Você acertou ${score} de ${quizData.length} perguntas! 🕷️`;
+                }
+            }
+        
+            loadQuestion();
+        </script>
         <div class="galeria">
-            <img src="https://c4.wallpaperflare.com/wallpaper/440/603/699/movie-spider-man-into-the-spider-verse-miles-morales-spider-man-hd-wallpaper-preview.jpg" alt="Homem-Aranha" class="image">
             <img src="https://c4.wallpaperflare.com/wallpaper/251/835/708/spider-man-into-the-spider-verse-miles-morales-spider-man-marvel-comics-wallpaper-preview.jpg" alt="Homem-Aranha" class="image">
+            <img src="https://i.pinimg.com/originals/2b/04/09/2b0409d73c496414d028007de03f0661.gif" alt="Homem-Aranha" class="image">
             <img src="https://c4.wallpaperflare.com/wallpaper/578/626/344/movie-spider-man-into-the-spider-verse-miles-morales-spider-man-hd-wallpaper-preview.jpg" alt="Homem-Aranha" class="image">
         </div>
     </section>
+
     
-</body>
+    </body>
+</html>
